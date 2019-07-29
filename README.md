@@ -56,3 +56,4 @@ Tour of Go と 公式ドキュメントをまず当たるように書いてい�
 #### プロジェクトを始める & ディレクトリ構成
 
 この辺、 Perl でいうところの `Module::Starter` みたいなのがあると嬉しいんだけど、 [Songmu/godzil](https://github.com/Songmu/godzil) のようなオーサリングツールを現在模索中。
+
