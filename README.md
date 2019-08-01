@@ -57,3 +57,23 @@ Tour of Go と 公式ドキュメントをまず当たるように書いてい�
 
 この辺、 Perl でいうところの `Module::Starter` みたいなのがあると嬉しいんだけど、 [Songmu/godzil](https://github.com/Songmu/godzil) のようなオーサリングツールを現在模索中。
 
+
+### 1.4 Goらしいコードを書く
+
+* `error` をちゃんと使う。1.14で `try` の導入見送りになったっぽいので多値返却でいく
+* 正規表現はできるだけ使わず、使っても `regexp.MustCompile` で確定させておく
+* map を避ける。できるだけ構造体を使って型を定義する
+* reflect を避ける。できるだけ型をつける
+* 巨大な struct を作らず継承させようとしない。これは API の JSON Response を分割して作る時に思う
+* 並行処理を使いすぎない
+* Go のコードを読もう
+    * Go のバージョンは古いけど「[GoのためのGo](https://motemen.github.io/go-for-go-book/https://motemen.github.io/go-for-go-book/)」も参考になるかも
+* テストとCI。 `go vet` や `golint` などでのチェックを入れる
+* ビルドとデプロイ。ビルド時の埋め込みやフラグ分岐など
+* モニタリング
+
+
+## 2章 マルチプラットフォームで動作する社内ツールの作り方
+
+私がWindows 持ってないので、この章の話ちゃんと検証できてないところがある。
+

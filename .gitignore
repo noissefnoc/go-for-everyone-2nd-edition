@@ -13,3 +13,6 @@
 
 # IDE Setting files
 .idea
+
+# ignore binaries
+ch02/ch02
