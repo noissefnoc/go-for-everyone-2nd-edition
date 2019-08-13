@@ -4,5 +4,6 @@ go 1.12
 
 require (
 	github.com/mattn/go-isatty v0.0.8 // indirect
+	github.com/mitchellh/cli v1.0.0 // indirect
 	github.com/rakyll/statik v0.1.6
 )

@@ -208,7 +208,7 @@ OSS化できたらいいなぁ
     * メインにする方が第一階層
         * ライブラリがメインで、コマンドがサブの場合は `PROJECT_ROOT/cmd/COMMAND_NAME/main.go` として配置
 
-### 4.2 flag パッケージ
+### 4.3 flag パッケージ
 
 * 標準パッケージの `flag` パッケージの紹介
 * `flag.Type` (ポインタ渡し) または `flag.TypeVal` (値渡し) をした後に `flag.Parse()` で値を取得
@@ -220,3 +220,15 @@ OSS化できたらいいなぁ
     * [spf13/pflag](https://github.com/spf13/pflag)
     * [jessevdk/go-flags](https://github.com/jessevdk/go-flags)
     * [alecthomas/kingpin](https://github.com/alecthomas/kingpin)
+
+### 4.4 サブコマンドを持ったCLIツール
+
+* サードパッケージ製のパッケージ紹介
+    * [urfave/cli](https://github.com/urfave/cli)
+    * [spf13/cobra](https://github.com/spf13/cobra)
+    * [docopt/docopt.go](https://github.com/docopt/docopt.go)
+    * [mitchellh/cli](https://github.com/mitchellh/cli)
+    * [google/subcommands](https://github.com/google/subcommands)
+* 著者の使っている [mitchellh/cli](https://github.com/mitchellh/cli) を詳しく説明
+    * サブコマンドをインターフェースとして定義
+
