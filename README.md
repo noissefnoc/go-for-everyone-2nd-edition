@@ -207,3 +207,16 @@ OSS化できたらいいなぁ
     * バイナリをメインにするのか、ライブラリをメインにするのか
     * メインにする方が第一階層
         * ライブラリがメインで、コマンドがサブの場合は `PROJECT_ROOT/cmd/COMMAND_NAME/main.go` として配置
+
+### 4.2 flag パッケージ
+
+* 標準パッケージの `flag` パッケージの紹介
+* `flag.Type` (ポインタ渡し) または `flag.TypeVal` (値渡し) をした後に `flag.Parse()` で値を取得
+* ショートオプションとロングオプションを設定したい場合は両方とも記述が必要
+* フラグの記載場所。著者は非パッケージスコープでの定義を推奨
+* `flag` の設定を変えることで出力先を変更するなどが可能なので、テストのときに利用する
+* コマンドライン引数をパースするような型をカスタムで作成することも可能(カンマ区切り値が例に挙げられている)
+* サードパーティーのフラグのパッケージとして以下が例示されている
+    * [spf13/pflag](https://github.com/spf13/pflag)
+    * [jessevdk/go-flags](https://github.com/jessevdk/go-flags)
+    * [alecthomas/kingpin](https://github.com/alecthomas/kingpin)
