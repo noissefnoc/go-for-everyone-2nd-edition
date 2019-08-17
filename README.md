@@ -328,3 +328,9 @@ OSS化できたらいいなぁ
 ### 7.6 ORMを使ったデータベースの扱い方
 
 * 次の節で [go-gorp/gorp](https://github.com/go-gorp/gorp) を使うための説明
+
+### 7.7 REST サーバを作る
+
+* Webフレームワークとして [labstack/echo](https://github.com/labstack/echo) を使う
+* Validatorとして [go-playground/validator.v9](https://gopkg.in/go-playground/validator.v9) を使う
+ 
