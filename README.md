@@ -300,3 +300,14 @@ OSS化できたらいいなぁ
 * インターフェースのモッキング
 * `net/http/httptest` パッケージ
 * テストカバレッジは `-coverprofile` や `-covermode` を使う
+
+
+## 7章 データベースの取り扱い
+
+### 7.1 Go におけるデータベースの取り扱い
+
+* `database/sql` の働き
+
+### 7.2 database/sql を使ってデータベースに接続する
+
+* [lib/pq](https://github.com/lib/pq) を使ってデータベースに接続
