@@ -5,22 +5,22 @@ import (
 	"sync"
 )
 
-var wg sync.WaitGroup
+var wgc sync.WaitGroup
 
 func main() {
 	queue := make(chan string)
 	for i := 0; i < 2; i++ { // generate 2 goroutine
-		wg.Add(1)
+		wgc.Add(1)
 		go fetchURLWithCh(queue)
 	}
 
-	queue<- "https://www.example.com"
-	queue<- "https://www.example.net"
-	queue<- "https://www.example.net/foo"
-	queue<- "https://www.example.net/bar"
+	queue <- "https://www.example.com"
+	queue <- "https://www.example.net"
+	queue <- "https://www.example.net/foo"
+	queue <- "https://www.example.net/bar"
 
 	close(queue) // end message to goroutine
-	wg.Wait()    // wait for all goroutines
+	wgc.Wait()   // wait for all goroutines
 }
 
 func fetchURLWithCh(queue chan string) {
@@ -32,7 +32,7 @@ func fetchURLWithCh(queue chan string) {
 			// some processing
 		} else {
 			fmt.Println("worker exit")
-			wg.Done()
+			wgc.Done()
 			return
 		}
 	}
