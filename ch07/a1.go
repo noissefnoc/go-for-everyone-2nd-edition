@@ -2,18 +2,19 @@ package main
 
 import (
 	"database/sql"
-	"github.com/go-gorp/gorp"
 	"log"
 	"os"
 	"time"
+
+	"github.com/go-gorp/gorp"
 
 	_ "github.com/lib/pq"
 )
 
 type Comment struct {
-	Id int64 `db:"id,primarykey,autoincrement"`
-	Name string `db:"name,notnull,default:'名無し',size:200"`
-	Text string `db:"text,notnull,size:400"`
+	Id      int64     `db:"id,primarykey,autoincrement"`
+	Name    string    `db:"name,notnull,default:'名無し',size:200"`
+	Text    string    `db:"text,notnull,size:400"`
 	Created time.Time `db:"created,notnull"`
 	Updated time.Time `db:"updated,notnull"`
 }
@@ -31,33 +32,33 @@ func (c *Comment) PreUpdate(s gorp.SqlExecutor) error {
 
 func main() {
 	/*
-	dsn := os.Getenv("DSN")
-	db, err := sql.Open("postgres", dsn)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+		dsn := os.Getenv("DSN")
+		db, err := sql.Open("postgres", dsn)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer db.Close()
 
-	result, err := db.Exec(
-		"INSERT INTO users(name, age) VALUES($name, $age)",
-		sql.Named("name", "Bob"),
-		sql.Named("age", 18))
-	if err != nil {
-		log.Fatal(err)
-	}
+		result, err := db.Exec(
+			"INSERT INTO users(name, age) VALUES($name, $age)",
+			sql.Named("name", "Bob"),
+			sql.Named("age", 18))
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	affected, err := result.RowsAffected()
-	if err != nil {
-		log.Fatal(err)
-	}
+		affected, err := result.RowsAffected()
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	lastInsertedID, err := result.LastInsertId()
-	if err != nil {
-		log.Fatal(err)
-	}
+		lastInsertedID, err := result.LastInsertId()
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	log.Printf("affected: %d, lastInsertedID: %d\n", affected, lastInsertedID)
-	 */
+		log.Printf("affected: %d, lastInsertedID: %d\n", affected, lastInsertedID)
+	*/
 
 	dsn := os.Getenv("DSN")
 	db, err := sql.Open("postgres", dsn)
@@ -75,12 +76,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = dbmap.Insert(&Comment{Text:"こんにちわ"})
+	err = dbmap.Insert(&Comment{Text: "こんにちわ"})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbmap.Insert(&Comment{Name:"bob", Text:"こんにちわ"})
+	dbmap.Insert(&Comment{Name: "bob", Text: "こんにちわ"})
 	var comment Comment
 	dbmap.SelectOne(&comment, "SELECT * FROM comments WHERE id = 1")
 
