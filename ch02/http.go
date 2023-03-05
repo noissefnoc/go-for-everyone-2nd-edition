@@ -2,7 +2,6 @@ package main
 
 import (
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -44,9 +43,9 @@ func upload(w http.ResponseWriter, r *http.Request) {
 		_, header, _ := r.FormFile("file")
 		s, _ := header.Open()
 		p := filepath.Join("files", header.Filename)
-		buf, _ := ioutil.ReadAll(s)
-		ioutil.WriteFile(p, buf, 0644)
-		http.Redirect(w, r, "/" + p, 301)
+		buf, _ := io.ReadAll(s)
+		os.WriteFile(p, buf, 0644)
+		http.Redirect(w, r, "/"+p, 301)
 	} else {
 		http.Redirect(w, r, "/", 301)
 	}

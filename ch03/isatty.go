@@ -3,10 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/mattn/go-isatty"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/mattn/go-isatty"
 )
 
 type flusher interface {

@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "github.com/noissefnoc/go-for-everyone-2nd-edition/ch02/statik"
-	"github.com/rakyll/statik/fs"
 	"io"
 	"log"
 	"os"
+
+	"github.com/rakyll/statik/fs"
 )
 
 func main() {
