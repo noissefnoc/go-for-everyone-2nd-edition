@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/mitchellh/cli"
 	"os"
+
+	"github.com/mitchellh/cli"
 )
 
 // Command for sub command interface
@@ -27,7 +28,7 @@ func (c *AddCommand) Help() string {
 	return "Usage: todo add [option]"
 }
 
-func (c *AddCommand) Run(args []string) int  {
+func (c *AddCommand) Run(args []string) int {
 	var debug bool
 
 	flags := flag.NewFlagSet("add", flag.ContinueOnError)
